@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div id="myrestReply">
+			<div class="grid text-center">
+				<h3>후기 작성</h3>
+				<hr>
+			</div>
+
+			<div id="writeReply">
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">작성자
+						이름</label> <input type="email" class="form-control"
+						id="exampleFormControlInput1" placeholder="회원가입 이름과 동일한 이름을 적어주세요">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label">내용</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1"
+						rows="3"></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="formFile" class="form-label">첨부파일1</label> <input
+						class="form-control" type="file" id="formFile">
+				</div>
+				<div class="mb-3">
+					<label for="formFileMultiple" class="form-label">첨부파일2</label> <input
+						class="form-control" type="file" id="formFileMultiple" multiple>
+				</div>
+				<div class="mb-3">
+					<label for="formFileDisabled" class="form-label">첨부파일3</label> <input
+						class="form-control" type="file" id="formFileMultiple" multiple>
+				</div>
+			</div>
+		</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style></style>
+</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div id="carouselExample" class="carousel slide">
+			<div class="carousel-inner  ">
+				<div class="carousel-item active">
+					<img src="/images/brunch.jpg" class="d-block w-100"
+						style="object-fit: cover" height="600px" alt="...">
+				</div>
+				<div class="carousel-item ">
+					<img src="/images/dakbokum.jpg" class="d-block w-100"
+						style="object-fit: cover" height="600px" alt="...">
+				</div>
+				<div class="carousel-item ">
+					<img src="/images/hoe2.jpg" class="d-block w-100"
+						style="object-fit: cover" height="600px" alt="...">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExample" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<div class="text-center">
+			<div class="alert alert-primary" role="alert">내 근처 맛집을 추천받고 싶으면
+				브라우저의 위치권한을 허용해주세요</div>
+		</div>
+
+		<!-- 슬라이드 -->
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item container text-center">
+				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseOne">일식</button>
+				</h2>
+				<div id="panelsStayOpen-collapseOne"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingOne">
+					<div class="accordion-body carousel slide"
+						id="carouselExampleIndicators">
+
+						<div class="carousel-indicators">
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="0" class="active" aria-current="true"
+								aria-label="Slide 1"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="1" aria-label="Slide 2"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators"
+								data-bs-slide-to="2" aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner ">
+							<div class="carousel-item active row">
+								<img src="/images/pizza.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/taco.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/youkhoe2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="/images/jeon2.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/jeongol.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/jjokgalbi.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+
+							<div class="carousel-item">
+								<img src="/images/nakji.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/omrice.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/pasta2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button"
+							data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button"
+							data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 1번 슬라이드 -->
+
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item container text-center">
+				<h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseTwo">한식</button>
+				</h2>
+				<div id="panelsStayOpen-collapseTwo"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingTwo">
+					<div class="accordion-body carousel slide"
+						id="carouselExampleIndicators2">
+
+						<div class="carousel-indicators">
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators2"
+								data-bs-slide-to="0" class="active" aria-current="true"
+								aria-label="Slide 1"></button>
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators2"
+								data-bs-slide-to="1" aria-label="Slide 2"></button>
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators2"
+								data-bs-slide-to="2" aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner ">
+							<div class="carousel-item active row">
+								<img src="/images/ramen.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/rosepasta.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/sashimi.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="/images/sundae.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/sushi.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/tsucune.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+
+							<div class="carousel-item">
+								<img src="/images/pizza.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/taco.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/youkhoe2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button"
+							data-bs-target="#carouselExampleIndicators2" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button"
+							data-bs-target="#carouselExampleIndicators2" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 2번 슬라이드 -->
+
+
+		<div class="accordion" id="accordionPanelsStayOpenExample">
+			<div class="accordion-item container text-center">
+				<h2 class="accordion-header" id="panelsStayOpen-headingThree">
+					<button class="accordion-button" type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+						aria-controls="panelsStayOpen-collapseThree">양식</button>
+				</h2>
+				<div id="panelsStayOpen-collapseThree"
+					class="accordion-collapse collapse show"
+					aria-labelledby="panelsStayOpen-headingThree">
+					<div class="accordion-body carousel slide"
+						id="carouselExampleIndicators3">
+
+						<div class="carousel-indicators">
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators3"
+								data-bs-slide-to="0" class="active" aria-current="true"
+								aria-label="Slide 1"></button>
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators3"
+								data-bs-slide-to="1" aria-label="Slide 2"></button>
+							<button type="button"
+								data-bs-target="#carouselExampleIndicators3"
+								data-bs-slide-to="2" aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner ">
+							<div class="carousel-item active row">
+								<img src="/images/pizza.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/taco.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/youkhoe2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="/images/pizza.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/taco.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/youkhoe2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+
+							<div class="carousel-item">
+								<img src="/images/pizza.jpg" class=" col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/taco.jpg" class="  col-3"
+									style="object-fit: cover" height="200px" width="200px"
+									alt="..."> <img src="/images/youkhoe2.jpg"
+									class="  col-3" style="object-fit: cover" height="200px"
+									width="200px" alt="...">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button"
+							data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button"
+							data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 슬라이드 -->
+	</div>
+</body>
+</html>

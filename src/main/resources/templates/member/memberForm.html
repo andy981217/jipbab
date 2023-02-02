@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block layout:fragment="css">
+</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div id="memberForm">
+			<div class="grid text-center">
+				<h3>회원가입</h3>
+				<hr>
+			</div>
+			<form class="row col-5" action="/members/new" method="post"
+				id="signupForm">
+				<div>
+					<label>이름</label> <input type="text" class="form-control"
+						placeholder="이름을 입력해주세요">
+					<p class="fieldError"></p>
+				</div>
+				<div>
+					<label>이메일주소</label> <input type="email" class="form-control"
+						placeholder="이메일을 입력해주세요">
+					<p class="fieldError"></p>
+				</div>
+				<div>
+					<label>비밀번호</label> <input type="password" class="form-control"
+						placeholder="비밀번호 입력">
+					<p class="fieldError"></p>
+				</div>
+				<div>
+					<label>비밀번호 확인</label> <input type="password" class="form-control"
+						placeholder="비밀번호 입력">
+					<p class="fieldError"></p>
+				</div>
+				<div>
+					<label>주소</label> <input type="text" class="form-control"
+						placeholder="주소를 입력해주세요">
+					<p class="fieldError"></p>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary mb-3">회원가입</button>
+				</div>
+				<input type="hidden">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

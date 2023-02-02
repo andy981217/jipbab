@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div id="memberLoginForm">
+			<div class="grid text-center">
+				<h3>로그인 및 회원가입</h3>
+				<hr>
+			</div>
+			<form class="row col-5" id="loginForm">
+				<div class="mb-3 ">
+					<label for="exampleInputEmail1" class="form-label">Email
+						address</label> <input type="email" class="form-control"
+						id="exampleInputEmail1" aria-describedby="emailHelp">
+					<div id="emailHelp" class="form-text"></div>
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Password</label>
+					<input type="password" class="form-control"
+						id="exampleInputPassword1">
+				</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">아이디 저장</label>
+				</div>
+				<button type="submit" class="btn btn-primary" id="loginButton">Submit</button>
+				<button type="button" class="btn btn-outline-danger">누르면 사망</button>
+			</form>
+			<div id="login-signup" class="col-3">
+				<h4>
+					아직 회원이 아니신가요?<br>
+				</h4>
+				<button type="button" class="btn btn-success" onclick="location.href='/members/new'">목숨 1회 연장</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>		

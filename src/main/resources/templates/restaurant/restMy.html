@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content" class="content-mg ">
+		<div id="myfavorite">
+			<div class="grid text-center">
+				<h3>나의 맛집 리스트</h3>
+				<hr>
+			</div>
+			<div class="card mb-3" style="max-width: 700px;" id="myrest">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="/images/bibimbap.jpg" class="img-fluid rounded-start"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<button type="button" class="btn-close" aria-label="Close"
+								id="myrestdelete"></button>
+
+							<h5 class="card-title">
+								육회비빔밥
+							</h5>
+								<hr>
+
+							<p class="card-text">이 육회비빔밥은 정말로 맛있어요 아니 그냥 아무생각안하고 갔는데 생각보다
+								맛있어서 깜짝 놀랐다니까요?동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리 나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+								복무신조 우리의 결의 우리는 국가와 국민에 충성을 다하는 대한민국 육군이다. 하나 우리 자유민주주의를 수호하며 조국통일에 역군이된다. </p>
+							<p class="card-text" id="myrestDate">
+								<small class="text-muted align-text-bottom">2020-03-03</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-3" style="max-width: 700px;" id="myrest">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="/images/bibimbap.jpg" class="img-fluid rounded-start"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<button type="button" class="btn-close" aria-label="Close"
+								id="myrestdelete"></button>
+
+							<h5 class="card-title">
+								육회비빔밥
+								<hr>
+							</h5>
+
+							<p class="card-text">이 육회비빔밥은 정말로 맛있어요 아니 그냥 아무생각안하고 갔는데 생각보다
+								맛있어서 깜짝 놀랐다니까요?둘이먹다 하나 죽어도 모르는 여기도 육비 저기도 육비 육비가 콸콸콸 개맛있음 ㄹㅇㅋㅋ
+								얼마나 맛있냐고 물어볼 시간에 일단 움직여라 이거 안먹으면 ㄹㅇ 인생 개손해임 진짜 이거 광고아님</p>
+							<p class="card-text" id="myrestDate">
+								<small class="text-muted align-text-bottom">2020-03-03</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 700px;" id="myrest">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="/images/bibimbap.jpg" class="img-fluid rounded-start"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<button type="button" class="btn-close" aria-label="Close"
+								id="myrestdelete"></button>
+
+							<h5 class="card-title">
+								육회비빔밥
+								<hr>
+							</h5>
+
+							<p class="card-text">이 육회비빔밥은 정말로 맛있어요 아니 그냥 아무생각안하고 갔는데 생각보다
+								맛있어서 깜짝 놀랐다니까요?다들 맛있다고 하니까 광고같죠? 아~니에요~ 이건 이세상에 하나뿐인 존맛육비
+								얼마나 맛있는지 생각만해도 침이 콸콸콸~! ktx타고 지나가도 존맛집이라는걸 100프로 알게되어버림</p>
+							<p class="card-text" id="myrestDate">
+								<small class="text-muted align-text-bottom">2020-03-03</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-3" style="max-width: 700px;" id="myrest">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="/images/bibimbap.jpg" class="img-fluid rounded-start"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<button type="button" class="btn-close" aria-label="Close"
+								id="myrestdelete"></button>
+
+							<h5 class="card-title">
+								육회비빔밥
+								<hr>
+							</h5>
+
+							<p class="card-text">이 육회비빔밥은 정말로 맛있어요 아니 그냥 아무생각안하고 갔는데 생각보다
+								맛있어서 깜짝 놀랐다니까요?</p>
+							<p class="card-text" id="myrestDate">
+								<small class="text-muted align-text-bottom">2020-03-03</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-3" style="max-width: 700px;" id="myrest">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="/images/bibimbap.jpg" class="img-fluid rounded-start"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<button type="button" class="btn-close" aria-label="Close"
+								id="myrestdelete"></button>
+
+							<h5 class="card-title">
+								육회비빔밥
+								<hr>
+							</h5>
+
+							<p class="card-text">이 육회비빔밥은 정말로 맛있어요 아니 그냥 아무생각안하고 갔는데 생각보다
+								맛있어서 깜짝 놀랐다니까요?</p>
+							<p class="card-text" id="myrestDate">
+								<small class="text-muted align-text-bottom">2020-03-03</small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
