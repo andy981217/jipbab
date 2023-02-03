@@ -13,10 +13,10 @@
 				<h3>로그인 및 회원가입</h3>
 				<hr>
 			</div>
-			<form class="row col-5" id="loginForm">
+			<form class="row col-5" id="loginForm" method="post">
 				<div class="mb-3 ">
-					<label for="exampleInputEmail1" class="form-label">Email
-						address</label> <input type="email" class="form-control"
+					<label for="exampleInputEmail1" class="form-label"  th:for="email">Email
+						address</label> <input type="email" class="form-control" th:field="*{email}"
 						id="exampleInputEmail1" aria-describedby="emailHelp">
 					<div id="emailHelp" class="form-text"></div>
 				</div>

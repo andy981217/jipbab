@@ -21,4 +21,8 @@ public class RestController {
 	public String restUpload() {
 		return "restaurant/restUpload";
 	}
+	@GetMapping(value="/restaurant")
+	public String showRest() {
+		return "restaurant/restaurant";
+	}
 }

@@ -90,4 +90,16 @@ footer {
 /* restUpload 페이지 */
 #myrestupload{
 	margin: 50px 200px 50px 200px;
+	
+}
+#inputCity{
+	height: 300px;
+	width: 100%;
+}
+/* restaurant */
+#introduceRestaurant{
+	text-align: center;;
+}
+#showRestaurant{
+	margin: 50px 200px 50px 200px;
 }

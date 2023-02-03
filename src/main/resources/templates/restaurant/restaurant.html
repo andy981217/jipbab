@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div id="showRestaurant">
+			<div class="grid text-center">
+				<h3>음식점 이름</h3>
+				<hr>
+			</div>
+			<div id="carouselExampleIndicators"
+				class="carousel slide alert alert-dark col-md-6 offset-md-3 ">
+				<div class="carousel-indicators ">
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="0" class="active" aria-current="true"
+						aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators"
+						data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active" id="introduceRestaurant">
+						<img src="/images/hoe2.jpg" height="500px"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="carousel-item" id="introduceRestaurant">
+						<img src="/images/nakji.jpg" height="500px"
+							style="object-fit: cover" alt="...">
+					</div>
+					<div class="carousel-item" id="introduceRestaurant">
+						<img src="/images/ramen.jpg" height="500px"
+							style="object-fit: cover" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+			<div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
