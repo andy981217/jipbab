@@ -1,15 +1,20 @@
 package com.jipbab.service;
 
+
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import com.jipbab.dto.RestSearchDto;
 import com.jipbab.dto.RestaurantFormDto;
 import com.jipbab.entity.ResImg;
 import com.jipbab.entity.Restaurant;
-import com.jipbab.repository.RestImgRepository;
+
 import com.jipbab.repository.RestRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -23,8 +28,10 @@ public class RestService {
 
 	public Long saveRestaurant(RestaurantFormDto restFormDto, List<MultipartFile> restImgFileList) throws Exception {
 		Restaurant restaurant = restFormDto.createRest();
+								
 		restRepository.save(restaurant);
-
+		
+		
 		for (int i = 0; i < restImgFileList.size(); i++) {
 			ResImg resImg = new ResImg();
 			resImg.setRestaurant(restaurant);
@@ -37,7 +44,14 @@ public class RestService {
 			}
 			restImgService.saveRestImg(resImg, restImgFileList.get(i));
 		}
+		
+		
 		return restaurant.getRes_id();
 	}
 
+	
+	@Transactional(readOnly = true)
+	public Page<Restaurant> getAdminRestPage(RestSearchDto restSearchDto, Pageable pageable){
+		return restRepository.getAdminRestPage(restSearchDto, pageable);
+	}
 }

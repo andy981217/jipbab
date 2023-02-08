@@ -20,7 +20,7 @@
 		</nav>
 		<nav
 			class=" navbar navbar-expand-lg bg-body-tertiary  row justify-content-center ">
-			<div class="container-fluid col-6 ">
+			<div class="container-fluid col-8">
 				<a class="navbar-brand " href="/">배고파</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -35,6 +35,9 @@
 							sec:authorize="isAuthenticated()">나만의 맛집리스트</a></li>
 						<li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
 							<a class="nav-link" href="/restaurant/myrestupload">관리자용 음식점 등록</a>
+						</li>
+						<li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+							<a class="nav-link" href="/restaurant/check">관리자용 음식점 확인</a>
 						</li>
 						<li class="nav-item "><a class="nav-link"
 							sec:authorize="isAnonymous()" href="/members/login">로그인</a></li>

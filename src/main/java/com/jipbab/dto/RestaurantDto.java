@@ -9,7 +9,8 @@ import lombok.*;
 public class RestaurantDto {
 	private Long res_id; //음식점 번호
 	private String res_name; //음식점 이름
-	private String time; //음식점 운영 시간
+	private String time1; //음식점 운영 시간
+	private String time2;
 	private String information; //음식점 기본 정보
 	private Integer heart; //음식점 좋아요 수
 	private String location; //음식점 위치

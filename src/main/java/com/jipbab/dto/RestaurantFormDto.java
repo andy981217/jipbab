@@ -22,7 +22,11 @@ public class RestaurantFormDto {
 	private String res_name;
 	
 	@NotNull(message = "시간은 필수 입력 값입니다.")
-	private String time;
+	private String time1;
+	
+	private String time2;
+	
+
 	
 	@NotNull(message = "기본 정보는 필수 입력 값입니다.")
 	private String information;
@@ -36,7 +40,8 @@ public class RestaurantFormDto {
 	
 	private List<Long> resImgIds = new ArrayList<>();
 	
-	private List<HashTagDto> hashTagDtoList = new ArrayList();
+	private List<HashTagDto> tag = new ArrayList(); 
+	
 	
 	private static ModelMapper modelMapper = new ModelMapper();
 	public Restaurant createRest() {

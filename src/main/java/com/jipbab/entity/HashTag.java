@@ -19,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @ToString
-public class RestHashTag extends BaseEntity{
+public class HashTag extends BaseEntity{
 	
 	@Id
 	@Column(name="id")
@@ -32,7 +32,8 @@ public class RestHashTag extends BaseEntity{
 	@JoinColumn(name = "res_id")
 	private Restaurant restaurant;
 
-	public void updateTag(String tag) {
-		this.tag = tag;
-	}
+
+
+
+
 }

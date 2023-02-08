@@ -11,16 +11,16 @@ import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QRestHashTag is a Querydsl query type for RestHashTag
+ * QHashTag is a Querydsl query type for HashTag
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QRestHashTag extends EntityPathBase<RestHashTag> {
+public class QHashTag extends EntityPathBase<HashTag> {
 
-    private static final long serialVersionUID = -1628434052L;
+    private static final long serialVersionUID = -852046352L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QRestHashTag restHashTag = new QRestHashTag("restHashTag");
+    public static final QHashTag hashTag = new QHashTag("hashTag");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -28,23 +28,23 @@ public class QRestHashTag extends EntityPathBase<RestHashTag> {
 
     public final StringPath tag = createString("tag");
 
-    public QRestHashTag(String variable) {
-        this(RestHashTag.class, forVariable(variable), INITS);
+    public QHashTag(String variable) {
+        this(HashTag.class, forVariable(variable), INITS);
     }
 
-    public QRestHashTag(Path<? extends RestHashTag> path) {
+    public QHashTag(Path<? extends HashTag> path) {
         this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
-    public QRestHashTag(PathMetadata metadata) {
+    public QHashTag(PathMetadata metadata) {
         this(metadata, PathInits.getFor(metadata, INITS));
     }
 
-    public QRestHashTag(PathMetadata metadata, PathInits inits) {
-        this(RestHashTag.class, metadata, inits);
+    public QHashTag(PathMetadata metadata, PathInits inits) {
+        this(HashTag.class, metadata, inits);
     }
 
-    public QRestHashTag(Class<? extends RestHashTag> type, PathMetadata metadata, PathInits inits) {
+    public QHashTag(Class<? extends HashTag> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.restaurant = inits.isInitialized("restaurant") ? new QRestaurant(forProperty("restaurant")) : null;
     }

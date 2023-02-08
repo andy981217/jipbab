@@ -29,7 +29,9 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
 
     public final StringPath res_name = createString("res_name");
 
-    public final StringPath time = createString("time");
+    public final StringPath time1 = createString("time1");
+
+    public final StringPath time2 = createString("time2");
 
     public QRestaurant(String variable) {
         super(Restaurant.class, forVariable(variable));

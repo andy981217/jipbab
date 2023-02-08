@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 각 페이지의 스크립트가 작성될 위치 -->
+<th:block layout:fragment="script">
+	 <script th:inline="javascript">
+		$(document).ready(function() {
+			$("#searchBtn").on("click", function(e) {
+				e.preventDefault();
+				page(0);
+			});
+		});
+
+		function page(page) {
+			var searchDateType = $("#searchDateType").val();
+			var searchBy = $("#searchBy").val();
+			var searchQuery = $("#searchQuery").val();
+
+			location.href = "/restaurant/check	/" + page
+					+ "?searchDateType=" + searchDateType + "&searchBy="
+					+ searchBy + "&searchQuery=" + searchQuery;
+		}
+	</script> 
+</th:block>
+
+<!-- 각 페이지의 CSS가 작성될 위치 -->
+<th:block layout:fragment="css">
+	<style>
+select {
+	margin-right: 10px;
+}
+
+a {
+	cursor: pointer
+}
+</style>
+</th:block>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- items.number :현재 페이지 숫자 -->
+		<form th:action="@{'/restaurant/check/' + ${restaurants.number}}" role="form" method="get" th:object="${restaurants}">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">상품아이디</th>
+						<th scope="col">상품명</th>
+						<th scope="col">등록자</th>
+						<th scope="col">등록일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- items.getContent() :조회된 데이터를 가져온다.(List로 변환) -->
+					<tr th:each="restaurant, status: ${restaurants.getContent()}">
+						<th th:text="${restaurant.res_id}" scope="row"></th>
+						<td><a th:href="'/restaurant/restupload'+${restaurant.res_id}"
+							th:text="${restaurant.res_name}"></a></td>
+						<td th:text="${restaurant.createdBy}"></td>
+						<td th:text="${restaurant.regTime}"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- 페이징 버튼 -->
+			<!-- start = (현재 페이지 번호/보여줄 페이지수) + 1 , 페이지 시작 번호-->
+			<!-- end = start + (보여줄 페이지수 - 1 ), 페이지 끝 번호-->
+
+		</form>
+	</div>
+</body>
+</html>
