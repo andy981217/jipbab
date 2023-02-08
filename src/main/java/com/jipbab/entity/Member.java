@@ -23,6 +23,7 @@ import lombok.Setter;
 @Setter
 public class Member extends BaseEntity {
 	@Id
+	@Column(name = "member_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
