@@ -7,8 +7,8 @@ import lombok.*;
 @Getter
 @Setter
 public class RestaurantDto {
-	private Long res_id; //음식점 번호
-	private String res_name; //음식점 이름
+	private Long resId; //음식점 번호
+	private String resName; //음식점 이름
 	private String time1; //음식점 운영 시간
 	private String time2;
 	private String information; //음식점 기본 정보

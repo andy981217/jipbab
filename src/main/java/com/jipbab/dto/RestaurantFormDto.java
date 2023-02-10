@@ -16,10 +16,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RestaurantFormDto {
-	private Long res_id;
+	
+	private Long id;
 	
 	@NotBlank(message = "음식점 이름은 필수 입력 값입니다.")
-	private String res_name;
+	private String resName;
 	
 	@NotNull(message = "시간은 필수 입력 값입니다.")
 	private String time1;
@@ -40,7 +41,6 @@ public class RestaurantFormDto {
 	
 	private List<Long> resImgIds = new ArrayList<>();
 	
-	private List<HashTagDto> tag = new ArrayList(); 
 	
 	
 	private static ModelMapper modelMapper = new ModelMapper();

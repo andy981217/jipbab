@@ -25,10 +25,10 @@ public class Restaurant extends BaseEntity{
 	@Id
 	@Column(name = "res_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long res_id; //음식점 번호
+	private Long id; //음식점 번호
 	
 	@Column(nullable = false)
-	private String res_name; //음식점 이름
+	private String resName; //음식점 이름
 	
 	@Column(nullable = false)
 	private String time1; //음식점 운영시간
@@ -45,8 +45,7 @@ public class Restaurant extends BaseEntity{
 	private String location; //음식점 위치
 	
 	public void  createRestaurant(RestaurantFormDto restaurantFormDto) {
-		this.res_id=restaurantFormDto.getRes_id();
-		this.res_name=restaurantFormDto.getRes_name();
+		this.resName=restaurantFormDto.getResName();
 		this.time1 =restaurantFormDto.getTime1();
 		this.time2 = restaurantFormDto.getTime2();
 		this.information = restaurantFormDto.getInformation();

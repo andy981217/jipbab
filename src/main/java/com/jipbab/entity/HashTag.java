@@ -32,8 +32,4 @@ public class HashTag extends BaseEntity{
 	@JoinColumn(name = "res_id")
 	private Restaurant restaurant;
 
-
-
-
-
 }

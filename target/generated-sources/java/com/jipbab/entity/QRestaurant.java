@@ -19,19 +19,33 @@ public class QRestaurant extends EntityPathBase<Restaurant> {
 
     public static final QRestaurant restaurant = new QRestaurant("restaurant");
 
+    public final QBaseEntity _super = new QBaseEntity(this);
+
+    //inherited
+    public final StringPath createdBy = _super.createdBy;
+
     public final NumberPath<Integer> heart = createNumber("heart", Integer.class);
+
+    public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath information = createString("information");
 
     public final StringPath location = createString("location");
 
-    public final NumberPath<Long> res_id = createNumber("res_id", Long.class);
+    //inherited
+    public final StringPath modifiedBy = _super.modifiedBy;
 
-    public final StringPath res_name = createString("res_name");
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> regTime = _super.regTime;
+
+    public final StringPath resName = createString("resName");
 
     public final StringPath time1 = createString("time1");
 
     public final StringPath time2 = createString("time2");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> upDateTime = _super.upDateTime;
 
     public QRestaurant(String variable) {
         super(Restaurant.class, forVariable(variable));

@@ -22,17 +22,31 @@ public class QResImg extends EntityPathBase<ResImg> {
 
     public static final QResImg resImg = new QResImg("resImg");
 
-    public final StringPath img_name = createString("img_name");
+    public final QBaseEntity _super = new QBaseEntity(this);
 
-    public final NumberPath<Long> res_img_id = createNumber("res_img_id", Long.class);
+    //inherited
+    public final StringPath createdBy = _super.createdBy;
 
-    public final StringPath res_imgUrl = createString("res_imgUrl");
+    public final StringPath imgName = createString("imgName");
 
-    public final StringPath res_oriImgName = createString("res_oriImgName");
+    //inherited
+    public final StringPath modifiedBy = _super.modifiedBy;
 
-    public final StringPath res_repimgYn = createString("res_repimgYn");
+    public final StringPath oriImgName = createString("oriImgName");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> regTime = _super.regTime;
+
+    public final NumberPath<Long> resImgId = createNumber("resImgId", Long.class);
+
+    public final StringPath resImgUrl = createString("resImgUrl");
+
+    public final StringPath resRepimgYn = createString("resRepimgYn");
 
     public final QRestaurant restaurant;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> upDateTime = _super.upDateTime;
 
     public QResImg(String variable) {
         this(ResImg.class, forVariable(variable), INITS);

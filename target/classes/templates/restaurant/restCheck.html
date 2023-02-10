@@ -8,7 +8,7 @@
 
 <!-- 각 페이지의 스크립트가 작성될 위치 -->
 <th:block layout:fragment="script">
-	 <script th:inline="javascript">
+	<script th:inline="javascript">
 		$(document).ready(function() {
 			$("#searchBtn").on("click", function(e) {
 				e.preventDefault();
@@ -21,11 +21,11 @@
 			var searchBy = $("#searchBy").val();
 			var searchQuery = $("#searchQuery").val();
 
-			location.href = "/restaurant/check	/" + page
-					+ "?searchDateType=" + searchDateType + "&searchBy="
-					+ searchBy + "&searchQuery=" + searchQuery;
+			location.href = "/restaurant/check/" + page + "?searchDateType="
+					+ searchDateType + "&searchBy=" + searchBy
+					+ "&searchQuery=" + searchQuery;
 		}
-	</script> 
+	</script>
 </th:block>
 
 <!-- 각 페이지의 CSS가 작성될 위치 -->
@@ -45,7 +45,8 @@ a {
 <body>
 	<div layout:fragment="content">
 		<!-- items.number :현재 페이지 숫자 -->
-		<form th:action="@{'/restaurant/check/' + ${restaurants.number}}" role="form" method="get" th:object="${restaurants}">
+		<form th:action="@{'/restaurant/myrestupload/' + ${restaurants.number}}"
+			role="form" method="get" th:object="${restaurants}">
 			<table class="table">
 				<thead>
 					<tr>
@@ -58,19 +59,59 @@ a {
 				<tbody>
 					<!-- items.getContent() :조회된 데이터를 가져온다.(List로 변환) -->
 					<tr th:each="restaurant, status: ${restaurants.getContent()}">
-						<th th:text="${restaurant.res_id}" scope="row"></th>
-						<td><a th:href="'/restaurant/restupload'+${restaurant.res_id}"
-							th:text="${restaurant.res_name}"></a></td>
+						<th th:text="${restaurant.id}" scope="row"></th>
+						<td><a th:href="'/restaurant/myrestupload'+${restaurant.id}"
+							th:text="${restaurant.resName}"></a></td>
 						<td th:text="${restaurant.createdBy}"></td>
 						<td th:text="${restaurant.regTime}"></td>
 					</tr>
 				</tbody>
 			</table>
-
-			<!-- 페이징 버튼 -->
-			<!-- start = (현재 페이지 번호/보여줄 페이지수) + 1 , 페이지 시작 번호-->
-			<!-- end = start + (보여줄 페이지수 - 1 ), 페이지 끝 번호-->
-
+			<nav
+				th:with="start=${(restaurants.number/maxPage)*maxPage + 1}
+			,end=(${(restaurants.totalPages == 0) ? 1 : (start + (maxPage - 1) < restaurants.totalPages ? start + (maxPage - 1) : restaurants.totalPages)})"
+				aria-label="Page navigation example">
+				<ul class="pagination d-flex justify-content-center">
+					<li class="page-item" th:classappend="${restaurants.first}?'disabled'">
+						<a class="page-link"
+						th:onclick="'javascript:page(' + ${restaurants.number - 1} +')'">이전</a>
+					</li>
+					<li class="page-item"
+						th:each="page: ${#numbers.sequence(start, end)}"
+						th:classappend="${restaurants.number eq page-1}?'active':''"><a
+						class="page-link" th:inline="text"
+						th:onclick="'javascript:page(' + ${page - 1} +')'">[[${page}]]</a>
+					</li>
+					<li class="page-item" th:classappend="${restaurants.last}?'disabled'">
+						<a class="page-link"
+						th:onclick="'javascript:page(' + ${restaurants.number + 1} +')'">다음</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- 검색창 -->
+			<div class="d-flex justify-content-center"
+				th:object="${restSearchDto}" style="height: 40px;">
+				<!-- 상품 등록일 -->
+				<select th:field="*{searchDateType}" class="form-select"
+					style="width: auto;">
+					<option value="all">전체기간</option>
+					<option value="1d">1일</option>
+					<option value="1w">1주</option>
+					<option value="1m">1개월</option>
+					<option value="6m">6개월</option>
+				</select>
+				<!-- 상품명, 등록자 선택 -->
+				<select th:field="*{searchBy}" class="form-select"
+					style="width: auto;">
+					<option value="resName">상품명</option>
+					<option value="createdBy">등록자</option>
+				</select>
+				<!-- 검색창 -->
+				<input type="text" th:field="*{searchQuery}" class="form-control"
+					placeholder="검색어 입력" style="width: auto;">
+				<button id="searchBtn" type="submit" class="btn btn-primary mb-3"
+					style="height: 100%;">검색</button>
+			</div>
 		</form>
 	</div>
 </body>

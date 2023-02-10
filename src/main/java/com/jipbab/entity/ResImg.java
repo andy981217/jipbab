@@ -21,22 +21,22 @@ import lombok.Setter;
 @ToString
 public class ResImg extends BaseEntity{
 	@Id
-	@Column(name = "res_img_id")
+	@Column(name = "res_Img_Id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long res_img_id;
+	private Long resImgId;
 	
-	private String img_name; //이미지 파일명
-	private String res_oriImgName; //원본 이미지 파일명
-	private String res_imgUrl; //이미지 조회 경로
-	private String res_repimgYn; //대표 이미지 여부
+	private String imgName; //이미지 파일명
+	private String oriImgName; //원본 이미지 파일명
+	private String resImgUrl; //이미지 조회 경로
+	private String resRepimgYn; //대표 이미지 여부
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="res_id")
 	private Restaurant restaurant;
 	
-	public void updateResImg(String res_oriImgName,String img_name, String res_imgUrl) {
-		this.res_oriImgName = res_oriImgName;
-		this.img_name = img_name;
-		this.res_imgUrl = res_imgUrl;
+	public void updateResImg(String oriImgName,String imgName, String resImgUrl) {
+		this.oriImgName = oriImgName;
+		this.imgName = imgName;
+		this.resImgUrl = resImgUrl;
 	}
 }

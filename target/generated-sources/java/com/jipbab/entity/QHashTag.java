@@ -22,11 +22,25 @@ public class QHashTag extends EntityPathBase<HashTag> {
 
     public static final QHashTag hashTag = new QHashTag("hashTag");
 
+    public final QBaseEntity _super = new QBaseEntity(this);
+
+    //inherited
+    public final StringPath createdBy = _super.createdBy;
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    //inherited
+    public final StringPath modifiedBy = _super.modifiedBy;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> regTime = _super.regTime;
 
     public final QRestaurant restaurant;
 
     public final StringPath tag = createString("tag");
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> upDateTime = _super.upDateTime;
 
     public QHashTag(String variable) {
         this(HashTag.class, forVariable(variable), INITS);

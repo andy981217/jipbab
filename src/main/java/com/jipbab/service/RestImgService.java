@@ -1,5 +1,6 @@
 package com.jipbab.service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -24,17 +25,32 @@ public class RestImgService {
 	private final FileService fileService;
 
 	public void saveRestImg(ResImg resImg, MultipartFile restImgFile) throws Exception {
-		String res_oriImgName = restImgFile.getOriginalFilename(); // 파일이름
-		String img_Name = "";
-		String res_imgUrl = "";
+		String oriImgName = restImgFile.getOriginalFilename(); // 파일이름
+		String imgName = "";
+		String resImgUrl = "";
 	
-		if(!StringUtils.isEmpty(res_oriImgName)) {
-			img_Name = fileService.uploadFile(restImgLocation, res_oriImgName, restImgFile.getBytes());
-			res_imgUrl = "/images/rest/" + img_Name;
+		if(!StringUtils.isEmpty(oriImgName)) {
+			imgName = fileService.uploadFile(restImgLocation, oriImgName, restImgFile.getBytes());
+			resImgUrl = "/images/rest/" + imgName;
 		}
 		//음식점 이미지 정보 저장
-		resImg.updateResImg(res_oriImgName, img_Name, res_imgUrl);
+		resImg.updateResImg(oriImgName, imgName, resImgUrl);
 		restImgRepostiory.save(resImg);
 	}
-	
+	public void updateResImg(Long resImgId, MultipartFile resImgFile) throws Exception{
+		if(!resImgFile.isEmpty()) {
+			ResImg savedResImg = restImgRepostiory.findById(resImgId)
+					.orElseThrow(EntityNotFoundException::new);
+			
+			if(!StringUtils.isEmpty(savedResImg.getImgName())) {
+				fileService.deleteFile(restImgLocation+"/"+savedResImg.getImgName());
+			}
+			
+			String oriImgName =resImgFile.getOriginalFilename();
+			String imgName = fileService.uploadFile(restImgLocation, oriImgName, resImgFile.getBytes());
+			String imgUrl = "/images/rest/"+imgName;
+			
+			savedResImg.updateResImg(oriImgName, imgName, imgUrl);
+		}
+	}
 }
