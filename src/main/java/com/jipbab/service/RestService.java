@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.jipbab.dto.MainRestDto;
 import com.jipbab.dto.ResImgDto;
 import com.jipbab.dto.RestSearchDto;
 import com.jipbab.dto.RestaurantFormDto;
@@ -56,7 +57,8 @@ public class RestService {
 	}
 	//상품가져오기
 	@Transactional(readOnly =  true)
-	public RestaurantFormDto getRestDtl(Long resId) {
+	public RestaurantFormDto 
+(Long resId) {
 		//1. res_img 테이블의 이미지를 가져온다.
 		List<ResImg> resImgList = restImgRepository.findByResImgId(resId);
 		List<ResImgDto> resImgDtoList = new ArrayList<>();
@@ -73,5 +75,8 @@ public class RestService {
 		restaurantFormDto.setResImgDtoList(resImgDtoList);
 		
 		return restaurantFormDto;
+	}
+	public Page<MainRestDto> getMainRestPage(RestSearchDto restSearchDto, Pageable pageable){
+		return restRepository.getMainRestPage(restSearchDto,pageable);
 	}
 }

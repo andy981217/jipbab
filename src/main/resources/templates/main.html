@@ -43,6 +43,11 @@
 			<div class="alert alert-primary" role="alert">내 근처 맛집을 추천받고 싶으면
 				브라우저의 위치권한을 허용해주세요</div>
 		</div>
+ 		<!-- 검색 결과 문구 출력 -->
+		<!-- <input type="hidden" name="searchQuery" th:value="${restSearchDto.searchQuery}">
+		<div th:if="${not #strings.isEmpty(restSearchDto.searchQuery)}" class="center">
+			<p class="h3 font-weight-bold" th:text="${restSearchDto.searchQuery} + '검색 결과'"></p>
+		</div>  -->
 
 		<!-- 슬라이드 -->
 		<div class="accordion" id="accordionPanelsStayOpenExample">
@@ -259,7 +264,6 @@
 			</div>
 		</div>
 
-		<!-- 슬라이드 -->
 	</div>
 </body>
 </html>

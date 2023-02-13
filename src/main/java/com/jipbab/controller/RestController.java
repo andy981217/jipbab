@@ -102,5 +102,11 @@ public class RestController {
 		}
 		return "restaurant/restUpload";
 	}
-
+	//상품 상세 페이지
+	@GetMapping(value="/restaurant/{resId}")
+	public String restDtl(Model model, @PathVariable("resId") Long resId) {
+		RestaurantFormDto restaurantFormDto = restService.getRestDtl(resId);
+		model.addAttribute("restaurant",restaurantFormDto);
+		return "restaurant/restaurant";
+	}
 }

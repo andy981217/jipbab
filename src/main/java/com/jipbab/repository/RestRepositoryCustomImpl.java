@@ -10,12 +10,17 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
 
+import com.jipbab.dto.MainRestDto;
+import com.jipbab.dto.QMainRestDto;
 import com.jipbab.dto.RestSearchDto;
+import com.jipbab.entity.QResImg;
 import com.jipbab.entity.QRestaurant;
 import com.jipbab.entity.Restaurant;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Wildcard;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
+import groovyjarjarantlr4.v4.parse.ANTLRParser.wildcard_return;
 
 public class RestRepositoryCustomImpl implements RestRepositoryCustom {
 	private JPAQueryFactory queryFactory;
@@ -66,6 +71,41 @@ public class RestRepositoryCustomImpl implements RestRepositoryCustom {
 			return new PageImpl<>(content,pageable,total);
 					
 					
+	}
+	
+	private BooleanExpression resNameLike(String searchQuery) {
+		return StringUtils.isEmpty(searchQuery) ? null : QRestaurant.restaurant.resName.like("%"+searchQuery+"%");
+	}
+	
+	@Override
+	public Page<MainRestDto> getMainRestPage(RestSearchDto restSearchDto, Pageable pageable) {
+		QRestaurant restaurant = QRestaurant.restaurant;
+		QResImg resImg = QResImg.resImg;
+		
+		List<MainRestDto> content = queryFactory.select(
+					new QMainRestDto(restaurant.id
+							,restaurant.resName 
+							, restaurant.information, 
+							resImg.resImgUrl)
+					).from(resImg)
+				.join(resImg.restaurant,restaurant)
+				.where(resImg.resRepimgYn.eq("Y"))
+				.where(resNameLike(restSearchDto.getSearchQuery()))
+				.orderBy(restaurant.id.desc())
+				.offset(pageable.getOffset())
+				.limit(pageable.getPageSize())
+				.fetch();
+		
+		long total = queryFactory
+				.select(Wildcard.count)
+				.from(resImg)
+				.join(resImg.restaurant,restaurant)
+				.where(resImg.resRepimgYn.eq("Y"))
+				.where(resNameLike(restSearchDto.getSearchQuery()))
+				.fetchOne()
+				;
+		
+		return new PageImpl<>(content,pageable,total);
 	}
 	
 
