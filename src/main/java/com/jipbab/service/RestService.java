@@ -55,12 +55,12 @@ public class RestService {
 	public Page<Restaurant> getAdminRestPage(RestSearchDto restSearchDto, Pageable pageable) {
 		return restRepository.getAdminRestPage(restSearchDto, pageable);
 	}
-	//상품가져오기
+
+	// 상품가져오기
 	@Transactional(readOnly =  true)
-	public RestaurantFormDto 
-(Long resId) {
+	public RestaurantFormDto getRestDtl(Long resId) {
 		//1. res_img 테이블의 이미지를 가져온다.
-		List<ResImg> resImgList = restImgRepository.findByResImgId(resId);
+		List<ResImg> resImgList = restImgRepository.findByRestaurantIdOrderByIdAsc(resId);
 		List<ResImgDto> resImgDtoList = new ArrayList<>();
 			
 		//엔티티 객체 -> dto 객체로 변환
@@ -76,7 +76,31 @@ public class RestService {
 		
 		return restaurantFormDto;
 	}
-	public Page<MainRestDto> getMainRestPage(RestSearchDto restSearchDto, Pageable pageable){
-		return restRepository.getMainRestPage(restSearchDto,pageable);
+	
+	//상품 수정
+	public Long updateRest(RestaurantFormDto restaurantFormDto, List<MultipartFile> restImgFileList) throws Exception	{
+		
+		Restaurant restaurant = restRepository.findById(restaurantFormDto.getId()).orElseThrow(EntityNotFoundException::new);
+		
+		restaurant.updateRest(restaurantFormDto);
+		
+		List<Long>resImgIds = restaurantFormDto.getResImgIds();
+		
+		for(int i = 0 ; i< restImgFileList.size(); i++) {
+			restImgService.updateResImg(resImgIds.get(i), restImgFileList.get(i));
+		}
+		return restaurant.getId();
+				
+	}
+	
+	
+	
+	
+	
+	
+	
+
+	public Page<MainRestDto> getMainRestPage(RestSearchDto restSearchDto, Pageable pageable) {
+		return restRepository.getMainRestPage(restSearchDto, pageable);
 	}
 }

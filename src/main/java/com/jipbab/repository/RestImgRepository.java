@@ -9,7 +9,5 @@ import com.jipbab.entity.ResImg;
 
 
 public interface RestImgRepository extends JpaRepository<ResImg, Long>{
-	List<ResImg> findByResImgId(Long resImgId);
-	
-//	ResImg findByResIdAndRepimgYn(Long resId, String repimgYn);
+	List<ResImg> findByRestaurantIdOrderByIdAsc(Long resId);
 }

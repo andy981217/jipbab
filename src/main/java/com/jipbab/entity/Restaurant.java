@@ -44,6 +44,7 @@ public class Restaurant extends BaseEntity{
 	@Column(nullable = false)
 	private String location; //음식점 위치
 	
+	
 	public void  createRestaurant(RestaurantFormDto restaurantFormDto) {
 		this.resName=restaurantFormDto.getResName();
 		this.time1 =restaurantFormDto.getTime1();
@@ -51,8 +52,17 @@ public class Restaurant extends BaseEntity{
 		this.information = restaurantFormDto.getInformation();
 		this.heart = restaurantFormDto.getHeart();
 		this.location = restaurantFormDto.getLocation();
-
-	
 	}
+	
+	
+	public void updateRest(RestaurantFormDto restaurantFormDto) {
+		this.resName = restaurantFormDto.getResName();
+		this.time1 =  restaurantFormDto.getTime1();
+		this.time2 = restaurantFormDto.getTime2();
+		this.information = restaurantFormDto.getInformation();
+		this.heart = restaurantFormDto.getHeart();
+		this.location = restaurantFormDto.getLocation();
+	}
+	
 	
 }

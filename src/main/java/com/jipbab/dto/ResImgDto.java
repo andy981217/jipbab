@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResImgDto {
-	private Long resImgId;
+	private Long id;
 	private String imgName;
 	private String oriImgName;
 	private String resImgUrl;

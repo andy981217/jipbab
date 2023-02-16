@@ -31,14 +31,15 @@ public class RestImgService {
 	
 		if(!StringUtils.isEmpty(oriImgName)) {
 			imgName = fileService.uploadFile(restImgLocation, oriImgName, restImgFile.getBytes());
-			resImgUrl = "/images/rest/" + imgName;
+			resImgUrl = "/images/restaurant/" + imgName;
 		}
 		//음식점 이미지 정보 저장
 		resImg.updateResImg(oriImgName, imgName, resImgUrl);
 		restImgRepostiory.save(resImg);
 	}
-	public void updateResImg(Long resImgId, MultipartFile resImgFile) throws Exception{
-		if(!resImgFile.isEmpty()) {
+	//이미지 업데이트 메소드
+	public void updateResImg(Long resImgId, MultipartFile restImgFile) throws Exception{
+		if(!restImgFile.isEmpty()) {
 			ResImg savedResImg = restImgRepostiory.findById(resImgId)
 					.orElseThrow(EntityNotFoundException::new);
 			
@@ -46,11 +47,11 @@ public class RestImgService {
 				fileService.deleteFile(restImgLocation+"/"+savedResImg.getImgName());
 			}
 			
-			String oriImgName =resImgFile.getOriginalFilename();
-			String imgName = fileService.uploadFile(restImgLocation, oriImgName, resImgFile.getBytes());
-			String imgUrl = "/images/rest/"+imgName;
+			String oriImgName =restImgFile.getOriginalFilename();
+			String imgName = fileService.uploadFile(restImgLocation, oriImgName, restImgFile.getBytes());
+			String resimgUrl = "/images/restaurant/"+imgName;
 			
-			savedResImg.updateResImg(oriImgName, imgName, imgUrl);
+			savedResImg.updateResImg(oriImgName, imgName, resimgUrl);
 		}
 	}
 }

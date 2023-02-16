@@ -21,9 +21,9 @@ import lombok.Setter;
 @ToString
 public class ResImg extends BaseEntity{
 	@Id
-	@Column(name = "res_Img_Id")
+	@Column(name = "res_img_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long resImgId;
+	private Long id;
 	
 	private String imgName; //이미지 파일명
 	private String oriImgName; //원본 이미지 파일명

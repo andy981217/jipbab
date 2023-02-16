@@ -3,19 +3,28 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/layout1}">
 <head>
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<th:block layout:fragment="css">
+	<style>
+.repImg {
+	width: 100%;
+	height: 800px;
+}
+</style>
+</th:block>
 </head>
 <body>
 	<div layout:fragment="content">
 		<div id="showRestaurant">
 			<div class="grid text-center">
-				<h3>음식점 이름</h3>
+				<h3 th:text="${restaurant.resName}"></h3>
 				<hr>
 			</div>
-			<div id="carouselExampleIndicators"
-				class="carousel slide alert alert-dark col-md-6 offset-md-3 ">
-				<div class="carousel-indicators ">
+			<div id="carouselExampleIndicators" class="carousel slide">
+				<div class="carousel-indicators">
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="0" class="active" aria-current="true"
 						aria-label="Slide 1"></button>
@@ -24,64 +33,48 @@
 					<button type="button" data-bs-target="#carouselExampleIndicators"
 						data-bs-slide-to="2" aria-label="Slide 3"></button>
 				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active" id="introduceRestaurant">
-						<img th:src="${restaurant.resImgDtoList[0].imgUrl}" height="500px"
-							style="object-fit: cover" th:alt="${restaurant.resName}">
+				<input type="hidden" id="resId" th:value="${restaurant.id}">
+				<div class="carousel-inner" style="max-width: 50%; text-align:center; margin:0 auto;"  >
+					<div class="carousel-item active">
+						<img th:src="${restaurant.resImgDtoList[0].resImgUrl}"  th:alt="${restaurant.resName}" class="d-block w-100" >
+					</div>
+					<div class="carousel-item">
+						<img th:src="${restaurant.resImgDtoList[1].resImgUrl}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img th:src="${restaurant.resImgDtoList[2].resImgUrl}" class="d-block w-100" alt="...">
 					</div>
 				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
 
+			<div class="mb-3 col-5 text-right" >
+				<label for="exampleFormControlTextarea1" class="form-label"></label>
+				<span class="form-control" id="exampleFormControlTextarea1" th:text="${restaurant.time1}"
+					rows="1"></span>
 			</div>
-			<div class="text-right">
-				<div class="h4 text-danger text-left">
-					<input type="hidden" id="price" name="price"> <span></span>원
-				</div>
-				<div class="input-group w-50">
-					<div class="input-group-prepend">
-						<span class="input-group-text">수량</span>
-					</div>
-					<input type="number" name="count" id="count" class="form-control"
-						value="1" min="1">
-				</div>
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label"> 기본정보
+					</label>
+				<span class="form-control" id="exampleFormControlTextarea1" th:text="${restaurant.information}"
+					rows="3"></span>
 			</div>
-			<hr class="my-4">
-
-			<div class="text-right mgt-50">
-				<h5>결제 금액</h5>
-				<h3 name="totalPrice" id="totalPrice" class="font-weight-bold"></h3>
-			</div>
-			<div class="text-right">
-				<button type="button"
-					class="btn btn-light border border-primary btn-lg">장바구니 담기</button>
-				<button type="button" class="btn btn-primary btn-lg">주문하기</button>
-			</div>
-			<div class="text-right">
-				<button type="button" class="btn btn-danger btn-lg">품절</button>
-			</div>
-			<div class="jumbotron jumbotron-fluid mgt-30">
-				<div class="container">
-					<h4 class="display-5">상품 상세 설명</h4>
-					<hr class="my-4">
-					<p class="lead"></p>
-				</div>
+			<div class="mb-3 col-5">
+				<label for="exampleFormControlTextarea1" class="form-label"></label>
+				<textarea class="form-control" id="exampleFormControlTextarea1"
+					rows="3"></textarea>
 			</div>
 		</div>
+	</div>	
 
-
-		<div class="text-center">
-			<img class="rounded mgb-15" width="800">
-		</div>
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previo us</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
-	</div>
-	<div></div>
 </body>
 </html>

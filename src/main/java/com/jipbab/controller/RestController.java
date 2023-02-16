@@ -90,6 +90,8 @@ public class RestController {
 		return "restaurant/restaurant";
 	}
 	
+
+	//상품 수정 페이지 보기 
 	@GetMapping(value="/myrestupload{resId}")
 	public String restDtl(@PathVariable("resId")Long resId, Model model) {
 		try {
@@ -102,6 +104,31 @@ public class RestController {
 		}
 		return "restaurant/restUpload";
 	}
+	
+	
+	
+	//상품 수정
+	@PostMapping(value="/myrestupload{resId}")
+	public String restUpdate(@Valid RestaurantFormDto restaurantFormDto, BindingResult bindingResult, 
+			Model model, @RequestParam("resImgFile")List<MultipartFile> resImgFileList) {
+		if(bindingResult.hasErrors()) {
+			return "restaurant/restUpload";
+		}
+		if(resImgFileList.get(0).isEmpty() && restaurantFormDto.getId() == null) {
+			model.addAttribute("errorMessage","첫 번째 상품 이미지는 필수 입력 값입니다.");
+			return "restaurant/restUpload";
+		}
+		try {	
+			restService.updateRest(restaurantFormDto,resImgFileList);
+		}catch(Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage","상품 수정 중 에러가 발생하였습니다.");
+			return "restaurant/restUpload";
+		}
+		return "redirect:/";
+	}
+	
+	
 	//상품 상세 페이지
 	@GetMapping(value="/restaurant/{resId}")
 	public String restDtl(Model model, @PathVariable("resId") Long resId) {

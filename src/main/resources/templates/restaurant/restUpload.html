@@ -40,7 +40,7 @@
 						required></textarea>
 				</div>
 
-				<!-- 이미지 업로드 -->
+				<!-- 등록할 때 -->
 				<div th:if="${#lists.isEmpty(restaurantFormDto.resImgDtoList)}">
 					<div th:each="num: ${#numbers.sequence(1,5)}">
 						<div class="mb-3">
@@ -51,12 +51,13 @@
 						</div>
 					</div>
 				</div>
+				
 				<div th:if="${not #lists.isEmpty(restaurantFormDto.resImgDtoList)}">
 					<div
 						th:each="resImgDto, status: ${restaurantFormDto.resImgDtoList}">
 						<div class="mb-3">
 							<label for="formFile" class="form-label custom-file-label"
-								th:text="${not #Strings.isEmpty(resImgDto.oriImgName)} ? ${resImgDto.oriImgName} : '음식점이미지' + ${status.index+1}">
+								th:text="${not #strings.isEmpty(resImgDto.oriImgName)} ? ${resImgDto.oriImgName} : '음식점이미지' + ${status.index+1}">
 							</label> <input type="hidden" name="resImgIds" th:value="${resImgDto.id}">
 							<input class="form-control custom-file-input" type="file"
 								id="resImgFile" name="resImgFile">
