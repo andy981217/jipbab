@@ -33,21 +33,21 @@
 					<input type="text"
 						class="form-control" th:field="*{name}" placeholder="이름을 입력해주세요">
 					<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-						class="fieldError">오류</p>
+						class="fieldError">에러</p>
 				</div>
 				<div>
 					<label th:for="email">이메일주소</label> 
 					<input type="email"
 						class="form-control" th:field="*{email}" placeholder="이메일을 입력해주세요">
 					<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-						class="fieldError">오류</p>
+						class="fieldError">에러</p>
 				</div>
 				<div>
 					<label th:for="password">비밀번호</label> 
 					<input type="password"
 						class="form-control" th:field="*{password}" placeholder="비밀번호 입력">
 					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-						class="fieldError">오류</p>
+						class="fieldError">에러</p>
 				</div>
 				<div>
 					<label th:for="address">주소</label> 
@@ -55,7 +55,7 @@
 						class="form-control" th:field="*{address}"
 						placeholder="주소를 입력해주세요">
 					<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
-						class="fieldError">오류</p>
+						class="fieldError">에러</p>
 				</div>
 				<div>
 					<button type="submit" class="btn btn-primary mb-3">회원가입</button>
